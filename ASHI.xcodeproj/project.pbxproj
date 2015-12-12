@@ -13,8 +13,6 @@
 		5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C90909818B3A66A00510153 /* InfoPlist.strings */; };
 		5C90909C18B3A66A00510153 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909B18B3A66A00510153 /* main.m */; };
 		5C9090A018B3A66A00510153 /* LocationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909F18B3A66A00510153 /* LocationAppDelegate.m */; };
-		5C9090A318B3A66A00510153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C9090A118B3A66A00510153 /* Main.storyboard */; };
-		5C9090A618B3A66A00510153 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9090A518B3A66A00510153 /* LocationViewController.m */; };
 		5C9090A818B3A66A00510153 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C9090A718B3A66A00510153 /* Images.xcassets */; };
 		5C9090AF18B3A66A00510153 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090AE18B3A66A00510153 /* XCTest.framework */; };
 		5C9090B018B3A66A00510153 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90908F18B3A66A00510153 /* Foundation.framework */; };
@@ -25,6 +23,14 @@
 		5C9090C918B3A78800510153 /* LocationShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9090C818B3A78800510153 /* LocationShareModel.m */; };
 		5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9090CB18B3A7FC00510153 /* BackgroundTaskManager.m */; };
 		5C9090CE18B3AB2100510153 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090CD18B3AB2100510153 /* CoreLocation.framework */; };
+		B962C5DC1C1AFDF800C4FA17 /* RecentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B962C5DB1C1AFDF800C4FA17 /* RecentTableViewController.m */; };
+		B962C5DF1C1AFF3500C4FA17 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B962C5DE1C1AFF3500C4FA17 /* SettingsTableViewController.m */; };
+		B962C5E21C1AFF4300C4FA17 /* HelpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B962C5E11C1AFF4300C4FA17 /* HelpTableViewController.m */; };
+		B962C5E41C1B000200C4FA17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B962C5E31C1B000200C4FA17 /* Main.storyboard */; };
+		B962C5EA1C1B08A200C4FA17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B962C5E91C1B08A200C4FA17 /* Default-568h@2x.png */; };
+		B962C5EC1C1B0A6B00C4FA17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B962C5EB1C1B0A6B00C4FA17 /* LaunchScreen.storyboard */; };
+		B962C5EF1C1B0F1C00C4FA17 /* NotiData.m in Sources */ = {isa = PBXBuildFile; fileRef = B962C5EE1C1B0F1C00C4FA17 /* NotiData.m */; };
+		B962C5F31C1B0F4100C4FA17 /* NotiDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = B962C5F21C1B0F4100C4FA17 /* NotiDataList.m */; };
 		B9719EF71C16B9E500D820B6 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9719EF11C16B9E500D820B6 /* ParseFacebookUtils.framework */; };
 		B9719EF81C16B9E500D820B6 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9719EF21C16B9E500D820B6 /* ParseFacebookUtilsV4.framework */; };
 		B9719EF91C16B9E500D820B6 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9719EF31C16B9E500D820B6 /* ParseTwitterUtils.framework */; };
@@ -64,9 +70,6 @@
 		5C90909D18B3A66A00510153 /* ASHI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ASHI-Prefix.pch"; sourceTree = "<group>"; };
 		5C90909E18B3A66A00510153 /* LocationAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationAppDelegate.h; sourceTree = "<group>"; };
 		5C90909F18B3A66A00510153 /* LocationAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationAppDelegate.m; sourceTree = "<group>"; };
-		5C9090A218B3A66A00510153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5C9090A418B3A66A00510153 /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
-		5C9090A518B3A66A00510153 /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		5C9090A718B3A66A00510153 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C9090AD18B3A66A00510153 /* ASHI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ASHI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9090AE18B3A66A00510153 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -80,6 +83,19 @@
 		5C9090CA18B3A7FC00510153 /* BackgroundTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundTaskManager.h; sourceTree = "<group>"; };
 		5C9090CB18B3A7FC00510153 /* BackgroundTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundTaskManager.m; sourceTree = "<group>"; };
 		5C9090CD18B3AB2100510153 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B962C5DA1C1AFDF800C4FA17 /* RecentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentTableViewController.h; sourceTree = "<group>"; };
+		B962C5DB1C1AFDF800C4FA17 /* RecentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTableViewController.m; sourceTree = "<group>"; };
+		B962C5DD1C1AFF3500C4FA17 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		B962C5DE1C1AFF3500C4FA17 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		B962C5E01C1AFF4300C4FA17 /* HelpTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpTableViewController.h; sourceTree = "<group>"; };
+		B962C5E11C1AFF4300C4FA17 /* HelpTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpTableViewController.m; sourceTree = "<group>"; };
+		B962C5E31C1B000200C4FA17 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		B962C5E91C1B08A200C4FA17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		B962C5EB1C1B0A6B00C4FA17 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B962C5ED1C1B0F1C00C4FA17 /* NotiData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiData.h; sourceTree = "<group>"; };
+		B962C5EE1C1B0F1C00C4FA17 /* NotiData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiData.m; sourceTree = "<group>"; };
+		B962C5F11C1B0F4100C4FA17 /* NotiDataList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiDataList.h; sourceTree = "<group>"; };
+		B962C5F21C1B0F4100C4FA17 /* NotiDataList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiDataList.m; sourceTree = "<group>"; };
 		B9719EF11C16B9E500D820B6 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		B9719EF21C16B9E500D820B6 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		B9719EF31C16B9E500D820B6 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
@@ -189,19 +205,25 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				B962C5F01C1B0F2300C4FA17 /* Model */,
 				5C90909E18B3A66A00510153 /* LocationAppDelegate.h */,
 				5C90909F18B3A66A00510153 /* LocationAppDelegate.m */,
-				5C9090A118B3A66A00510153 /* Main.storyboard */,
-				5C9090A418B3A66A00510153 /* LocationViewController.h */,
-				5C9090A518B3A66A00510153 /* LocationViewController.m */,
 				5C9090C418B3A75400510153 /* LocationTracker.h */,
 				5C9090C518B3A75400510153 /* LocationTracker.m */,
 				5C9090CA18B3A7FC00510153 /* BackgroundTaskManager.h */,
 				5C9090CB18B3A7FC00510153 /* BackgroundTaskManager.m */,
 				5C9090C718B3A78800510153 /* LocationShareModel.h */,
 				5C9090C818B3A78800510153 /* LocationShareModel.m */,
+				B962C5DA1C1AFDF800C4FA17 /* RecentTableViewController.h */,
+				B962C5DB1C1AFDF800C4FA17 /* RecentTableViewController.m */,
+				B962C5DD1C1AFF3500C4FA17 /* SettingsTableViewController.h */,
+				B962C5DE1C1AFF3500C4FA17 /* SettingsTableViewController.m */,
+				B962C5E01C1AFF4300C4FA17 /* HelpTableViewController.h */,
+				B962C5E11C1AFF4300C4FA17 /* HelpTableViewController.m */,
+				B962C5E31C1B000200C4FA17 /* Main.storyboard */,
 				5C9090A718B3A66A00510153 /* Images.xcassets */,
 				5C90909618B3A66A00510153 /* Supporting Files */,
+				B962C5EB1C1B0A6B00C4FA17 /* LaunchScreen.storyboard */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -209,6 +231,7 @@
 		5C90909618B3A66A00510153 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B962C5E91C1B08A200C4FA17 /* Default-568h@2x.png */,
 				5C90909718B3A66A00510153 /* ASHI-Info.plist */,
 				5C90909818B3A66A00510153 /* InfoPlist.strings */,
 				5C90909B18B3A66A00510153 /* main.m */,
@@ -233,6 +256,17 @@
 				5C9090B718B3A66A00510153 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B962C5F01C1B0F2300C4FA17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B962C5ED1C1B0F1C00C4FA17 /* NotiData.h */,
+				B962C5EE1C1B0F1C00C4FA17 /* NotiData.m */,
+				B962C5F11C1B0F4100C4FA17 /* NotiDataList.h */,
+				B962C5F21C1B0F4100C4FA17 /* NotiDataList.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,9 +357,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B962C5E41C1B000200C4FA17 /* Main.storyboard in Resources */,
 				5C9090A818B3A66A00510153 /* Images.xcassets in Resources */,
+				B962C5EC1C1B0A6B00C4FA17 /* LaunchScreen.storyboard in Resources */,
+				B962C5EA1C1B08A200C4FA17 /* Default-568h@2x.png in Resources */,
 				5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */,
-				5C9090A318B3A66A00510153 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,12 +380,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B962C5DF1C1AFF3500C4FA17 /* SettingsTableViewController.m in Sources */,
+				B962C5EF1C1B0F1C00C4FA17 /* NotiData.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,
 				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
-				5C9090A618B3A66A00510153 /* LocationViewController.m in Sources */,
 				5C9090C918B3A78800510153 /* LocationShareModel.m in Sources */,
+				B962C5E21C1AFF4300C4FA17 /* HelpTableViewController.m in Sources */,
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
+				B962C5DC1C1AFDF800C4FA17 /* RecentTableViewController.m in Sources */,
 				5C9090A018B3A66A00510153 /* LocationAppDelegate.m in Sources */,
+				B962C5F31C1B0F4100C4FA17 /* NotiDataList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,14 +418,6 @@
 				5C90909918B3A66A00510153 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5C9090A118B3A66A00510153 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5C9090A218B3A66A00510153 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		5C9090B718B3A66A00510153 /* InfoPlist.strings */ = {
@@ -474,7 +506,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -484,9 +515,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/ASHI-Prefix.pch";
 				INFOPLIST_FILE = "Location/ASHI-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = th.ac.kmitl.it.ashi;
 				PRODUCT_NAME = ASHI;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -495,7 +528,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -505,9 +537,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/ASHI-Prefix.pch";
 				INFOPLIST_FILE = "Location/ASHI-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = th.ac.kmitl.it.ashi;
 				PRODUCT_NAME = ASHI;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
