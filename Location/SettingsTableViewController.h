@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface SettingsTableViewController : UITableViewController
 
-- (NSArray *)getSelections;
+//- (NSArray *)getSelections;
 
 @end

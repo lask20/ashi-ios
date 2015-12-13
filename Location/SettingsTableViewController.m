@@ -24,6 +24,8 @@
     settingSectionTitles = [settingItems allKeys];
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"settings"];
     self.tableView.allowsMultipleSelection = NO;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"_User",];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +52,7 @@
     NSString *sectionTitle = [settingSectionTitles objectAtIndex:indexPath.section];
     NSArray *sectionSettings = [settingItems objectForKey:sectionTitle];
     cell.textLabel.text = [sectionSettings objectAtIndex:indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
 //    if([arSelectedRows containsObject:indexPath]) {
 //        cell.accessoryType = UITableViewCellAccessoryCheckmark;
 //    } else {
@@ -76,19 +79,27 @@
     //    for (UITableViewCell *cell in [tableView visibleCells]) {
     //        cell.accessoryType = UITableViewCellAccessoryNone;
     //    }
-
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    
+    
+    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    long row = indexPath.row;
     
     if(cell.accessoryType == UITableViewCellAccessoryNone){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [currentInstallation addUniqueObject:[settingItems objectForKey:@"Select Priority to show"][row] forKey:@"channels"];
         [arSelectedRows addObject:indexPath];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
+        [currentInstallation removeObject:[settingItems objectForKey:@"Select Priority to show"][row] forKey:@"channels"];
         [arSelectedRows removeObject:indexPath];
     }
+    [currentInstallation saveInBackground];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"%lu", (unsigned long) self.getSelections.count);
-    [self.tableView reloadData];
+//    NSLog(@"%lu", (unsigned long) self.getSelections.count);
+//    [self.tableView reloadData];
 }
 
 //-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
