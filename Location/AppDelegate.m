@@ -40,6 +40,7 @@
 - (void)setAppearanceNavigationController {
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.18 green:0.62 blue:0.99 alpha:1.0]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor whiteColor]}];
 }
 
 - (void)setApperanceTableViewController {
