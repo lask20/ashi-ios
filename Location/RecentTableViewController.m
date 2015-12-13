@@ -36,7 +36,7 @@
 - (void)setupUI {
     self.title = @"Recents";
     self.navigationItem.title = @"All ASHI Notifications";
-    [[UIView appearance] setTintColor:[UIColor whiteColor]];
+    //[[UIView appearance] setTintColor:[UIColor whiteColor]];
     // Display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }

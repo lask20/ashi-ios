@@ -20,20 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Settings";
-    settingItems = @{ @"Select Priority to show": @[@"All Priority", @"Low", @"Medium", @"High", @"Critical"],
-                      @"Other": @[@"Login", @"Register"]
-                      };
+    settingItems = @{@"Select Priority to show": @[@"All Priority", @"Low", @"Medium", @"High", @"Critical"]};
     settingSectionTitles = [settingItems allKeys];
-    //[[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:0.93 green:0.96 blue:0.99 alpha:1.0]];
-    [[UITableViewCell appearance] setBackgroundColor:[UIColor whiteColor]];
-    //self.tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
-    //self.tableView.sectionIndexBackgroundColor = [UIColor colorWithRed:148.0f green:207.0f blue:255.0f alpha:1];
-    //self.settingsTable.backgroundColor = [UIColor colorWithRed:148.0f green:207.0f blue:255.0f alpha:1];
-    
-    // Preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    [[UIView appearance] setTintColor:[UIColor whiteColor]];
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"settings"];
+    self.tableView.allowsMultipleSelection = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,22 +50,21 @@
     NSString *sectionTitle = [settingSectionTitles objectAtIndex:indexPath.section];
     NSArray *sectionSettings = [settingItems objectForKey:sectionTitle];
     cell.textLabel.text = [sectionSettings objectAtIndex:indexPath.row];
-    if([arSelectedRows containsObject:indexPath]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+//    if([arSelectedRows containsObject:indexPath]) {
+//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//    } else {
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//    }
     return cell;
 }
 
-- (NSArray *)getSelections {
-    NSMutableArray *selections = [[NSMutableArray alloc] init];
-    
-    for(NSIndexPath *indexPath in arSelectedRows) {
-        [selections addObject:[[settingItems objectForKey:@"Select Priority to show"] objectAtIndex:indexPath.row]];
-    }
-    return selections;
-}
+//- (NSArray *)getSelections {
+//    NSMutableArray *selections = [[NSMutableArray alloc] init];
+//    for(NSIndexPath *indexPath in arSelectedRows) {
+//        [selections addObject:[[settingItems objectForKey:@"Select Priority to show"][row] objectAtIndex:indexPath.row]];
+//    }
+//    return selections;
+//}
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -87,7 +76,7 @@
     //    for (UITableViewCell *cell in [tableView visibleCells]) {
     //        cell.accessoryType = UITableViewCellAccessoryNone;
     //    }
-    
+
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if(cell.accessoryType == UITableViewCellAccessoryNone){
@@ -99,6 +88,7 @@
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSLog(@"%lu", (unsigned long) self.getSelections.count);
+    [self.tableView reloadData];
 }
 
 //-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

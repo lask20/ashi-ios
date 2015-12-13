@@ -10,7 +10,6 @@
 
 @interface SettingsTableViewController : UITableViewController
 
-
 - (NSArray *)getSelections;
 
 @end
