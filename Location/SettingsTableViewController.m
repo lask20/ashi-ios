@@ -12,6 +12,7 @@
     NSDictionary *settingItems;
     NSArray *settingSectionTitles;
     NSMutableArray *arSelectedRows;
+    PFInstallation *currentInstallation;
 }
 @end
 
@@ -20,12 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Settings";
-    settingItems = @{@"Select Priority to show": @[@"All Priority", @"Low", @"Medium", @"High", @"Critical"]};
+    settingItems = @{@"Select Priority to show": @[ @"Low", @"Medium", @"High", @"Critical"]};
     settingSectionTitles = [settingItems allKeys];
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"settings"];
     self.tableView.allowsMultipleSelection = NO;
     
-    PFQuery *query = [PFQuery queryWithClassName:@"_User",];
+    currentInstallation = [PFInstallation currentInstallation];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +54,11 @@
     NSString *sectionTitle = [settingSectionTitles objectAtIndex:indexPath.section];
     NSArray *sectionSettings = [settingItems objectForKey:sectionTitle];
     cell.textLabel.text = [sectionSettings objectAtIndex:indexPath.row];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    NSArray *channel = currentInstallation.channels;
+    if ([channel containsObject:[settingItems objectForKey:@"Select Priority to show"][indexPath.row] ]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
 //    if([arSelectedRows containsObject:indexPath]) {
 //        cell.accessoryType = UITableViewCellAccessoryCheckmark;
 //    } else {
@@ -79,7 +85,7 @@
     //    for (UITableViewCell *cell in [tableView visibleCells]) {
     //        cell.accessoryType = UITableViewCellAccessoryNone;
     //    }
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    
     
     
     
