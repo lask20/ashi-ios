@@ -13,9 +13,9 @@
     NSArray *settingSectionTitles;
 //    NSMutableArray *arSelectedRows;
     PFInstallation *currentInstallation;
-    NSArray *channels;
-}
 
+}
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *act;
 @end
 
 @implementation SettingsTableViewController
@@ -28,9 +28,10 @@
     settingItems = @{@"Select Priority to show": @[ @"Low", @"Medium", @"High", @"Critical"]};
     settingSectionTitles = [settingItems allKeys];
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"settings"];
+    [self.act stopAnimating];
 //    self.tableView.allowsMultipleSelection = NO;
     
-    channels = currentInstallation.channels;
+    //channels = currentInstallation.channels;
     
     
     
@@ -74,9 +75,9 @@
     NSString *sectionTitle = [settingSectionTitles objectAtIndex:indexPath.section];
     NSArray *sectionSettings = [settingItems objectForKey:sectionTitle];
     cell.textLabel.text = [sectionSettings objectAtIndex:indexPath.row];
-
+    NSArray *channel = currentInstallation.channels;
     
-    if ([channels containsObject:[settingItems objectForKey:@"Select Priority to show"][indexPath.row]]) {
+    if ([channel containsObject:[settingItems objectForKey:@"Select Priority to show"][indexPath.row]]) {
 
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
@@ -111,28 +112,44 @@
     //        cell.accessoryType = UITableViewCellAccessoryNone;
     //    }
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (currentInstallation.channels == nil)
-    {
-        currentInstallation.channels = [[NSArray alloc] init];
-    }
+    // Uncheck the previous checked row
+
     
- long row = indexPath.row;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    long row = indexPath.row;
     
     if(cell.accessoryType == UITableViewCellAccessoryNone){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [currentInstallation addUniqueObject:[settingItems objectForKey:@"Select Priority to show"][row] forKey:@"channels"];
+        [currentInstallation addObject:[settingItems objectForKey:@"Select Priority to show"][row] forKey:@"channels"];
+//        [self.channels addObject:indexPath];
 //        [arSelectedRows addObject:indexPath];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
+//        [self.channels removeObject:indexPath];
         [currentInstallation removeObject:[settingItems objectForKey:@"Select Priority to show"][row] forKey:@"channels"];
 //        [arSelectedRows removeObject:indexPath];
     }
-    channels = currentInstallation.channels;
-    [currentInstallation saveInBackground];
+//    NSLog(@"%lu",(unsigned long)self.channels.count);
+//    channels = currentInstallation.channels;
+    tableView.allowsSelection = NO;
+    [self.act startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        [currentInstallation save];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            tableView.allowsSelection = YES;
+            [self.act stopAnimating];
+        });
+    });
+    
     
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    [self.tableView reloadData];
+}
+
+- (void)updateServer {
+    
 }
 
 //-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
