@@ -535,7 +535,7 @@
 				GCC_PREFIX_HEADER = "Location/ASHI-Prefix.pch";
 				INFOPLIST_FILE = "Location/ASHI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mekzcnt.ashi;
+				PRODUCT_BUNDLE_IDENTIFIER = th.ac.kmitl.it.ashi;
 				PRODUCT_NAME = ASHI;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -557,7 +557,7 @@
 				GCC_PREFIX_HEADER = "Location/ASHI-Prefix.pch";
 				INFOPLIST_FILE = "Location/ASHI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mekzcnt.ashi;
+				PRODUCT_BUNDLE_IDENTIFIER = th.ac.kmitl.it.ashi;
 				PRODUCT_NAME = ASHI;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
