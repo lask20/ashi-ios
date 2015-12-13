@@ -8,8 +8,11 @@
 
 #import "SettingsTableViewController.h"
 
-@interface SettingsTableViewController ()
-
+@interface SettingsTableViewController () {
+    NSDictionary *settingItems;
+    NSArray *settingSectionTitles;
+    NSMutableArray *arSelectedRows;
+}
 @end
 
 @implementation SettingsTableViewController
@@ -17,11 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Settings";
+    settingItems = @{ @"Select Priority to show": @[@"All Priority", @"Low", @"Medium", @"High", @"Critical"],
+                      @"Other": @[@"Login", @"Register"]
+                      };
+    settingSectionTitles = [settingItems allKeys];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,65 +36,82 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return [settingSectionTitles count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    NSString *sectionTitle = [settingSectionTitles objectAtIndex:section];
+    NSArray *sectionSettings = [settingItems objectForKey:sectionTitle];
+    return [sectionSettings count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell" forIndexPath:indexPath];
+    // Configure the cell
+    NSString *sectionTitle = [settingSectionTitles objectAtIndex:indexPath.section];
+    NSArray *sectionSettings = [settingItems objectForKey:sectionTitle];
+    cell.textLabel.text = [sectionSettings objectAtIndex:indexPath.row];
+    if([arSelectedRows containsObject:indexPath]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (NSArray *)getSelections {
+    NSMutableArray *selections = [[NSMutableArray alloc] init];
+    
+    for(NSIndexPath *indexPath in arSelectedRows) {
+        [selections addObject:[[settingItems objectForKey:@"Select Priority to show"] objectAtIndex:indexPath.row]];
+    }
+    return selections;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [settingSectionTitles objectAtIndex:section];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //    for (UITableViewCell *cell in [tableView visibleCells]) {
+    //        cell.accessoryType = UITableViewCellAccessoryNone;
+    //    }
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if(cell.accessoryType == UITableViewCellAccessoryNone){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [arSelectedRows addObject:indexPath];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [arSelectedRows removeObject:indexPath];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSLog(@"%lu", (unsigned long) self.getSelections.count);
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
+//    /* Create custom view to display section header... */
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
+//    [label setFont:[UIFont boldSystemFontOfSize:12]];
+//    NSString *sectionTitle = [settingSectionTitles objectAtIndex:section];
+//    /* Section header is in 0th index... */
+//    [label setText:sectionTitle];
+//    [view addSubview:label];
+//    [view setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]]; //your background color...
+//    return view;
+//}
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
-*/
+//}
 
 @end

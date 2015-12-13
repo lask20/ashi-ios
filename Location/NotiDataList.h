@@ -16,7 +16,7 @@
 - (id)initWithDefaultData;
 - (NotiData *) notiDataAtIndex:(NSUInteger)index;
 - (NSUInteger) count;
-- (NSArray *) getNotiDataAnnotation;
+//- (NSArray *) getNotiDataAnnotation;
 + (id)defaultNotiData;
 
 @end

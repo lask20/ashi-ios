@@ -13,13 +13,13 @@
 @end
 
 @implementation HelpTableViewController {
-    NSArray *items;
+    NSArray *helpItems;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Help";
-    items = @[@"Interesting Hotline", @"Support", @"FAQ", @"About", @"Contact Developers"];
+    helpItems = @[@"Interesting Hotline", @"Support", @"FAQ", @"About", @"Contact Developers"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,13 +34,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return items.count;
+    return helpItems.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"helpCell" forIndexPath:indexPath];
-    cell.textLabel.text = items[indexPath.row];
+    cell.textLabel.text = helpItems[indexPath.row];
     return cell;
 }
 

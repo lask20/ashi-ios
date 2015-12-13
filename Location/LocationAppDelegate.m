@@ -40,28 +40,40 @@
     
 
     
-     UIAlertView * alert;
+     UIAlertController *alert;
     
     //We have to make sure that the Background App Refresh is enable for the Location updates to work in the background.
     if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied){
         
-        alert = [[UIAlertView alloc]initWithTitle:@""
+        alert = [UIAlertController alertControllerWithTitle:@""
                                           message:@"The app doesn't work without the Background App Refresh enabled. To turn it on, go to Settings > General > Background App Refresh"
-                                         delegate:nil
-                                cancelButtonTitle:@"Ok"
-                                otherButtonTitles:nil, nil];
-        [alert show];
+                                         preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* okButton = [UIAlertAction
+                                    actionWithTitle:@"OK"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        //Handel your yes please button action here
+                                        [alert dismissViewControllerAnimated:YES completion:nil];
+                                    }];
+        [alert addAction:okButton];
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
         
-    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted){
-        
-        alert = [[UIAlertView alloc]initWithTitle:@""
+    } else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted) {
+
+        alert = [UIAlertController alertControllerWithTitle:@""
                                           message:@"The functions of this app are limited because the Background App Refresh is disable."
-                                         delegate:nil
-                                cancelButtonTitle:@"Ok"
-                                otherButtonTitles:nil, nil];
-        [alert show];
+                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* okButton = [UIAlertAction
+                                   actionWithTitle:@"OK"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       //Handel your yes please button action here
+                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                   }];
+        [alert addAction:okButton];
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
         
-    } else{
+    } else {
         [PFConfig getConfigInBackgroundWithBlock:^(PFConfig *config, NSError *error) {
             NSTimeInterval time = 60;
             if (!error) {
@@ -101,7 +113,6 @@
 
 -(void)updateLocation {
     NSLog(@"updateLocation");
-    
     [self.locationTracker updateLocationToServer];
 }
 

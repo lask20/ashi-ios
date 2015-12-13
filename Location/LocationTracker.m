@@ -32,7 +32,7 @@
 }
 
 - (id)init {
-	if (self==[super init]) {
+	if (self == [super init]) {
         //Get the share model and also initialize myLocationArray
         self.shareModel = [LocationShareModel sharedModel];
         self.shareModel.myLocationArray = [[NSMutableArray alloc]init];
@@ -84,8 +84,17 @@
 
 	if ([CLLocationManager locationServicesEnabled] == NO) {
         NSLog(@"locationServicesEnabled false");
-		UIAlertView *servicesDisabledAlert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled" message:@"You currently have all location services for this device disabled" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[servicesDisabledAlert show];
+		UIAlertController *servicesDisabledAlert = [UIAlertController alertControllerWithTitle:@"Location Services Disabled" message:@"You currently have all location services for this device disabled" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* okButton = [UIAlertAction
+                                   actionWithTitle:@"OK"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       //Handel your yes please button action here
+                                       [servicesDisabledAlert dismissViewControllerAnimated:YES completion:nil];
+                                   }];
+        [servicesDisabledAlert addAction:okButton];
+        [self.window.rootViewController presentViewController:servicesDisabledAlert animated:YES completion:nil];
+        
 	} else {
         CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
         
@@ -202,13 +211,31 @@
     {
         case kCLErrorNetwork: // general, network-related error
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error" message:@"Please check your network connection." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [alert show];
+            UIAlertController * alert = [UIAlertController  alertControllerWithTitle:@"Network Error"
+                                                            message:@"Please check your network connection."
+                                                        preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * action) {
+                                                                 //Handel your yes please button action here
+                                                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                                             }];
+            [alert addAction:okButton];
+            [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
         }
             break;
         case kCLErrorDenied:{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable Location Service" message:@"You have to enable the Location Service to use this App. To enable, please go to Settings->Privacy->Location Services" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [alert show];
+            UIAlertController * alert = [UIAlertController  alertControllerWithTitle:@"Enable Location Service"
+                                                                             message:@"You have to enable the Location Service to use this App. To enable, Please go to Settings > Privacy > Location Services"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * action) {
+                                                                 //Handel your yes please button action here
+                                                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                                             }];
+            [alert addAction:okButton];
+            [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
         }
             break;
         default:

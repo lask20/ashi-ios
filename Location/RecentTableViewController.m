@@ -7,26 +7,42 @@
 //
 
 #import "RecentTableViewController.h"
+#import "NotiData.h"
+#import "NotiDataList.h"
 
 @interface RecentTableViewController ()
 
 @end
 
-@implementation RecentTableViewController
+@implementation RecentTableViewController {
+    NotiDataList *notiData;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Recents";
-    self.navigationItem.title = @"ASHI Notifications";
+    [self setupData];
+    [self setupUI];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
+    
+    //PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    //testObject[@"foo"] = @"bar";
+    //[testObject saveInBackground];
+}
+
+- (void)setupData {
+    notiData = [NotiDataList defaultNotiData];
+}
+
+- (void)setupUI {
+    self.title = @"Recents";
+    self.navigationItem.title = @"All ASHI Notifications";
+    
+    // Display an Edit button in the navigation bar for this view controller.
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,25 +50,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return [notiData count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recentCell" forIndexPath:indexPath];
+    [self setupCell:cell atIndexPath:indexPath];
     return cell;
 }
-*/
+
+- (void)setupCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    NotiData *notidatas = [notiData notiDataAtIndex:indexPath.row];
+    //NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+    //[dateformatter setDateFormat:@"dd-MM-yyy"];
+    cell.textLabel.text = notidatas.message;
+    //cell.DetailLabel.text = diary.locationName;
+    //cell.DateLabel.text = [dateformatter stringFromDate:diary.diaryDate];
+}
 
 /*
 // Override to support conditional editing of the table view.

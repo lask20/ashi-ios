@@ -11,7 +11,7 @@
 @implementation NotiData
 
 static const NSString *kId = @"id";
-static const NSString *kTitle = @"title";
+static const NSString *kTitle = @"message";
 static const NSString *kPiority = @"priority";
 static const NSString *kDetails = @"details";
 
@@ -19,10 +19,9 @@ static const NSString *kDetails = @"details";
     self = [super init];
     if (self) {
         self.id = object.objectId;
-        self.title = object[@"title"];
+        self.message = object[@"message"];
         self.priority = object[@"priority"];
         self.details = object[@"details"];
-        self.publishAt = object[@"publishAt"];
         self.createdAt = object[@"createdAt"];
     }
     return self;

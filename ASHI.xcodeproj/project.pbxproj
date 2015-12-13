@@ -220,10 +220,9 @@
 				B962C5DE1C1AFF3500C4FA17 /* SettingsTableViewController.m */,
 				B962C5E01C1AFF4300C4FA17 /* HelpTableViewController.h */,
 				B962C5E11C1AFF4300C4FA17 /* HelpTableViewController.m */,
-				B962C5E31C1B000200C4FA17 /* Main.storyboard */,
-				5C9090A718B3A66A00510153 /* Images.xcassets */,
+				D670A6471C1C4999009B5951 /* Storyboard */,
 				5C90909618B3A66A00510153 /* Supporting Files */,
-				B962C5EB1C1B0A6B00C4FA17 /* LaunchScreen.storyboard */,
+				5C9090A718B3A66A00510153 /* Images.xcassets */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -267,6 +266,15 @@
 				B962C5F21C1B0F4100C4FA17 /* NotiDataList.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		D670A6471C1C4999009B5951 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B962C5E31C1B000200C4FA17 /* Main.storyboard */,
+				B962C5EB1C1B0A6B00C4FA17 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,7 +326,6 @@
 				ORGANIZATIONNAME = Location;
 				TargetAttributes = {
 					5C90908B18B3A66A00510153 = {
-						DevelopmentTeam = WV43NF4VJJ;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -516,7 +523,7 @@
 				GCC_PREFIX_HEADER = "Location/ASHI-Prefix.pch";
 				INFOPLIST_FILE = "Location/ASHI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				PRODUCT_BUNDLE_IDENTIFIER = th.ac.kmitl.it.ashi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mekzcnt.ashi;
 				PRODUCT_NAME = ASHI;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -538,7 +545,7 @@
 				GCC_PREFIX_HEADER = "Location/ASHI-Prefix.pch";
 				INFOPLIST_FILE = "Location/ASHI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				PRODUCT_BUNDLE_IDENTIFIER = th.ac.kmitl.it.ashi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mekzcnt.ashi;
 				PRODUCT_NAME = ASHI;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
