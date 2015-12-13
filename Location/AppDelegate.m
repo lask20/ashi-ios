@@ -24,12 +24,6 @@
     
 }
 
-- (void)setAppearanceNavigationController {
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.18 green:0.62 blue:0.99 alpha:1.0]];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor whiteColor]}];
-}
-
 - (void)setApperanceTableViewController {
     //[[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:0.93 green:0.96 blue:0.99 alpha:1.0]];
     //[[UITableViewCell appearance] setBackgroundColor:[UIColor colorWithRed:0.93 green:0.96 blue:0.99 alpha:1.0]];
@@ -44,9 +38,7 @@
     }
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    [self setAppearanceNavigationController];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setAppearanceTabBarController];
     [self setApperanceTableViewController];
     
@@ -164,21 +156,17 @@
     [PFPush handlePush:userInfo];
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
+- (void)applicationWillResignActive:(UIApplication *)application {
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
+- (void)applicationDidEnterBackground:(UIApplication *)application {
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
+- (void)applicationWillEnterForeground:(UIApplication *)application {
 }
 
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
+- (void)applicationWillTerminate:(UIApplication *)application {
 }
 
 @end

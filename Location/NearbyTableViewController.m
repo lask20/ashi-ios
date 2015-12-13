@@ -7,8 +7,12 @@
 //
 
 #import "NearbyTableViewController.h"
+#import "NotiData.h"
+#import "NotiDataList.h"
 
-@interface NearbyTableViewController ()
+@interface NearbyTableViewController () {
+    NotiDataList *notiData;
+}
 
 @end
 
@@ -16,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupData];
     self.title = @"Nearby";
     self.navigationItem.title = @"Nearby Notifications";
     [[UIView appearance] setTintColor:[UIColor whiteColor]];
@@ -27,16 +32,39 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupData {
+    notiData = [NotiDataList defaultNotiData];
+}
+
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return the number of rows
-    return 0;
+    return [notiData count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"nearbyCell" forIndexPath:indexPath];
+    [self setupCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)setupCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    NotiData *notidatas = [notiData notiDataAtIndex:indexPath.row];
+    //NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+    //[dateformatter setDateFormat:@"dd-MM-yyy"];
+    cell.textLabel.text = notidatas.message;
+    //cell.DetailLabel.text = diary.locationName;
+    //cell.DateLabel.text = [dateformatter stringFromDate:diary.diaryDate];
 }
 
 

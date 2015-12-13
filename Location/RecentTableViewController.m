@@ -33,6 +33,8 @@
     notiData = [NotiDataList defaultNotiData];
 }
 
+
+
 - (void)setupUI {
     self.title = @"Recents";
     self.navigationItem.title = @"All ASHI Notifications";
@@ -46,8 +48,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+- (void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     [self.tableView reloadData];
     
 }
