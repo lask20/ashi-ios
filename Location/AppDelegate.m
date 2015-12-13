@@ -48,6 +48,15 @@
     //[[UITableViewCell appearance] setBackgroundColor:[UIColor colorWithRed:0.93 green:0.96 blue:0.99 alpha:1.0]];
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // reset badge
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    if (currentInstallation.badge != 0) {
+        currentInstallation.badge = 0;
+        [currentInstallation saveEventually];
+    }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //[[UIView appearance] setTintColor:[UIColor whiteColor]];
@@ -55,8 +64,6 @@
     [self setAppearanceTabBarController];
     [self setApperanceTableViewController];
     
-    UIImage * selectedItemImage1 = [UIImage imageNamed:@"clock"];
-    UIImage * unselectedItemImage1 = [UIImage imageNamed:@"clock"];
     //[(UITabBarItem *) [self.tabBar.items objectAtIndex:0] setImage:unselectedItemImage1
     //                                        imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
@@ -184,9 +191,6 @@
 {
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-}
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
