@@ -11,29 +11,49 @@
 @interface SettingsTableViewController () {
     NSDictionary *settingItems;
     NSArray *settingSectionTitles;
-    NSMutableArray *arSelectedRows;
+//    NSMutableArray *arSelectedRows;
     PFInstallation *currentInstallation;
+    NSArray *channels;
 }
+
 @end
 
 @implementation SettingsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    currentInstallation = [PFInstallation currentInstallation];
+//    [self setupData];
     self.title = @"Settings";
     settingItems = @{@"Select Priority to show": @[ @"Low", @"Medium", @"High", @"Critical"]};
     settingSectionTitles = [settingItems allKeys];
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"settings"];
-    self.tableView.allowsMultipleSelection = NO;
+//    self.tableView.allowsMultipleSelection = NO;
     
-    currentInstallation = [PFInstallation currentInstallation];
+    channels = currentInstallation.channels;
+    
+    
+    
     
 }
+
+//- (void)setupData {
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+//        currentInstallation = [PFInstallation currentInstallation];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            channels = currentInstallation.channels;
+//        });
+//    });
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"555");
+    //[self.tableView reloadData];
+}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -54,9 +74,14 @@
     NSString *sectionTitle = [settingSectionTitles objectAtIndex:indexPath.section];
     NSArray *sectionSettings = [settingItems objectForKey:sectionTitle];
     cell.textLabel.text = [sectionSettings objectAtIndex:indexPath.row];
-    NSArray *channel = currentInstallation.channels;
-    if ([channel containsObject:[settingItems objectForKey:@"Select Priority to show"][indexPath.row] ]) {
+
+    
+    if ([channels containsObject:[settingItems objectForKey:@"Select Priority to show"][indexPath.row]]) {
+
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
 //    if([arSelectedRows containsObject:indexPath]) {
@@ -86,25 +111,27 @@
     //        cell.accessoryType = UITableViewCellAccessoryNone;
     //    }
     
-    
-    
-    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (currentInstallation.channels == nil)
+    {
+        currentInstallation.channels = [[NSArray alloc] init];
+    }
     
-    long row = indexPath.row;
+ long row = indexPath.row;
     
     if(cell.accessoryType == UITableViewCellAccessoryNone){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [currentInstallation addUniqueObject:[settingItems objectForKey:@"Select Priority to show"][row] forKey:@"channels"];
-        [arSelectedRows addObject:indexPath];
+//        [arSelectedRows addObject:indexPath];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
         [currentInstallation removeObject:[settingItems objectForKey:@"Select Priority to show"][row] forKey:@"channels"];
-        [arSelectedRows removeObject:indexPath];
+//        [arSelectedRows removeObject:indexPath];
     }
+    channels = currentInstallation.channels;
     [currentInstallation saveInBackground];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    NSLog(@"%lu", (unsigned long) self.getSelections.count);
+    
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    [self.tableView reloadData];
 }
 
