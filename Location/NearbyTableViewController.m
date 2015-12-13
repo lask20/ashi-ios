@@ -1,26 +1,25 @@
 //
-//  HelpTableViewController.m
+//  NearbyTableViewController.m
 //  ASHI
 //
-//  Created by Nuttapong Kittichaiwattanakul on 12/11/2558 BE.
+//  Created by Jenpasit P. on 12/13/2558 BE.
 //  Copyright © 2558 Location. All rights reserved.
 //
 
-#import "HelpTableViewController.h"
+#import "NearbyTableViewController.h"
 
-@interface HelpTableViewController ()
+@interface NearbyTableViewController ()
 
 @end
 
-@implementation HelpTableViewController {
-    NSArray *helpItems;
-}
+@implementation NearbyTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Help";
-    helpItems = @[@"Interesting Hotline", @"Support", @"FAQ", @"About", @"Contact Developers"];
-    self.tabBarItem.selectedImage = [UIImage imageNamed:@"help"];
+    self.title = @"Nearby";
+    self.navigationItem.title = @"Nearby Notifications";
+    [[UIView appearance] setTintColor:[UIColor whiteColor]];
+    self.tabBarItem.selectedImage = [UIImage imageNamed:@"location"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,19 +30,25 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    //return the number of sections
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return helpItems.count;
+    //return the number of rows
+    return 0;
 }
 
 
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"helpCell" forIndexPath:indexPath];
-    cell.textLabel.text = helpItems[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
     return cell;
 }
+*/
 
 /*
 // Override to support conditional editing of the table view.

@@ -12,7 +12,7 @@
 		5C90909418B3A66A00510153 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90909318B3A66A00510153 /* UIKit.framework */; };
 		5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C90909818B3A66A00510153 /* InfoPlist.strings */; };
 		5C90909C18B3A66A00510153 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909B18B3A66A00510153 /* main.m */; };
-		5C9090A018B3A66A00510153 /* LocationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909F18B3A66A00510153 /* LocationAppDelegate.m */; };
+		5C9090A018B3A66A00510153 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909F18B3A66A00510153 /* AppDelegate.m */; };
 		5C9090A818B3A66A00510153 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C9090A718B3A66A00510153 /* Images.xcassets */; };
 		5C9090AF18B3A66A00510153 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090AE18B3A66A00510153 /* XCTest.framework */; };
 		5C9090B018B3A66A00510153 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90908F18B3A66A00510153 /* Foundation.framework */; };
@@ -47,6 +47,8 @@
 		B9719F0C1C16BA7F00D820B6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B9719F0B1C16BA7F00D820B6 /* libsqlite3.0.tbd */; };
 		B9719F0E1C16BA9200D820B6 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9719F0D1C16BA9200D820B6 /* Accounts.framework */; };
 		B9719F101C16BA9800D820B6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9719F0F1C16BA9800D820B6 /* Social.framework */; };
+		D669FCBD1C1D681E005BA67A /* NearbyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D669FCBC1C1D681E005BA67A /* NearbyTableViewController.m */; };
+		D669FCC01C1DD182005BA67A /* TabNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D669FCBF1C1DD182005BA67A /* TabNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +70,8 @@
 		5C90909918B3A66A00510153 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5C90909B18B3A66A00510153 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5C90909D18B3A66A00510153 /* ASHI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ASHI-Prefix.pch"; sourceTree = "<group>"; };
-		5C90909E18B3A66A00510153 /* LocationAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationAppDelegate.h; sourceTree = "<group>"; };
-		5C90909F18B3A66A00510153 /* LocationAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationAppDelegate.m; sourceTree = "<group>"; };
+		5C90909E18B3A66A00510153 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5C90909F18B3A66A00510153 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5C9090A718B3A66A00510153 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C9090AD18B3A66A00510153 /* ASHI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ASHI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9090AE18B3A66A00510153 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -112,6 +114,10 @@
 		B9719F0B1C16BA7F00D820B6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		B9719F0D1C16BA9200D820B6 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		B9719F0F1C16BA9800D820B6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D669FCBB1C1D681E005BA67A /* NearbyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyTableViewController.h; sourceTree = "<group>"; };
+		D669FCBC1C1D681E005BA67A /* NearbyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyTableViewController.m; sourceTree = "<group>"; };
+		D669FCBE1C1DD182005BA67A /* TabNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabNavigationController.h; sourceTree = "<group>"; };
+		D669FCBF1C1DD182005BA67A /* TabNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,8 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				B962C5F01C1B0F2300C4FA17 /* Model */,
-				5C90909E18B3A66A00510153 /* LocationAppDelegate.h */,
-				5C90909F18B3A66A00510153 /* LocationAppDelegate.m */,
+				5C90909E18B3A66A00510153 /* AppDelegate.h */,
+				5C90909F18B3A66A00510153 /* AppDelegate.m */,
 				5C9090C418B3A75400510153 /* LocationTracker.h */,
 				5C9090C518B3A75400510153 /* LocationTracker.m */,
 				5C9090CA18B3A7FC00510153 /* BackgroundTaskManager.h */,
@@ -216,10 +222,14 @@
 				5C9090C818B3A78800510153 /* LocationShareModel.m */,
 				B962C5DA1C1AFDF800C4FA17 /* RecentTableViewController.h */,
 				B962C5DB1C1AFDF800C4FA17 /* RecentTableViewController.m */,
+				D669FCBB1C1D681E005BA67A /* NearbyTableViewController.h */,
+				D669FCBC1C1D681E005BA67A /* NearbyTableViewController.m */,
 				B962C5DD1C1AFF3500C4FA17 /* SettingsTableViewController.h */,
 				B962C5DE1C1AFF3500C4FA17 /* SettingsTableViewController.m */,
 				B962C5E01C1AFF4300C4FA17 /* HelpTableViewController.h */,
 				B962C5E11C1AFF4300C4FA17 /* HelpTableViewController.m */,
+				D669FCBE1C1DD182005BA67A /* TabNavigationController.h */,
+				D669FCBF1C1DD182005BA67A /* TabNavigationController.m */,
 				D670A6471C1C4999009B5951 /* Storyboard */,
 				5C90909618B3A66A00510153 /* Supporting Files */,
 				5C9090A718B3A66A00510153 /* Images.xcassets */,
@@ -390,12 +400,14 @@
 				B962C5DF1C1AFF3500C4FA17 /* SettingsTableViewController.m in Sources */,
 				B962C5EF1C1B0F1C00C4FA17 /* NotiData.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,
+				D669FCC01C1DD182005BA67A /* TabNavigationController.m in Sources */,
 				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
 				5C9090C918B3A78800510153 /* LocationShareModel.m in Sources */,
 				B962C5E21C1AFF4300C4FA17 /* HelpTableViewController.m in Sources */,
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
 				B962C5DC1C1AFDF800C4FA17 /* RecentTableViewController.m in Sources */,
-				5C9090A018B3A66A00510153 /* LocationAppDelegate.m in Sources */,
+				5C9090A018B3A66A00510153 /* AppDelegate.m in Sources */,
+				D669FCBD1C1D681E005BA67A /* NearbyTableViewController.m in Sources */,
 				B962C5F31C1B0F4100C4FA17 /* NotiDataList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,15 +6,59 @@
 //  Copyright (c) 2014 Location. All rights reserved.
 //
 
-#import "LocationAppDelegate.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
-@implementation LocationAppDelegate{
+@implementation AppDelegate{
     
+}
+
+- (void)setAppearanceTabBarController {
+    //Changing Color of Tab Bar
+    [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.18 green:0.62 blue:0.99 alpha:1.0]];
+    //[[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    //[[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor yellowColor]} forState:UIControlStateNormal];
+    //[[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor yellowColor]} forState:UIControlStateSelected];
+    // Add this if you only want to change Selected Image color
+    // and/or selected image text
+    //[[UITabBar appearance] setTintColor:[UIColor blackColor]];
+    //[[UITabBar appearance] setTintColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]];
+    
+    // Add this code to change StateNormal text Color,
+//    [UITabBarItem.appearance setTitleTextAttributes:
+//     @{NSForegroundColorAttributeName : [UIColor whiteColor]}
+//                                           forState:UIControlStateNormal];
+    
+    // then if StateSelected should be different, you should add this code
+    [UITabBarItem.appearance setTitleTextAttributes:
+     @{NSForegroundColorAttributeName : [UIColor whiteColor]}
+                                           forState:UIControlStateSelected];
+    
+    
+}
+
+- (void)setAppearanceNavigationController {
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.18 green:0.62 blue:0.99 alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+}
+
+- (void)setApperanceTableViewController {
+    //[[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:0.93 green:0.96 blue:0.99 alpha:1.0]];
+    //[[UITableViewCell appearance] setBackgroundColor:[UIColor colorWithRed:0.93 green:0.96 blue:0.99 alpha:1.0]];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //[[UIView appearance] setTintColor:[UIColor whiteColor]];
+    [self setAppearanceNavigationController];
+    [self setAppearanceTabBarController];
+    [self setApperanceTableViewController];
+    
+    UIImage * selectedItemImage1 = [UIImage imageNamed:@"clock"];
+    UIImage * unselectedItemImage1 = [UIImage imageNamed:@"clock"];
+    //[(UITabBarItem *) [self.tabBar.items objectAtIndex:0] setImage:unselectedItemImage1
+    //                                        imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
     [Parse setApplicationId:@"p8k9QuDshK6V5fJ6MG1deZ7Oj41KwMxdYGHt8wW7"
                   clientKey:@"pYMakVuJYP18ofh12BxLMrA2jPLh0EJ3mMx0sz3L"];
     

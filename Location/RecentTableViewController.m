@@ -26,11 +26,7 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    
-    
-    //PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    //testObject[@"foo"] = @"bar";
-    //[testObject saveInBackground];
+    self.tabBarItem.selectedImage = [UIImage imageNamed:@"clock"];
 }
 
 - (void)setupData {
@@ -40,7 +36,7 @@
 - (void)setupUI {
     self.title = @"Recents";
     self.navigationItem.title = @"All ASHI Notifications";
-    
+    [[UIView appearance] setTintColor:[UIColor whiteColor]];
     // Display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }

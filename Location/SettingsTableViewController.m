@@ -24,28 +24,37 @@
                       @"Other": @[@"Login", @"Register"]
                       };
     settingSectionTitles = [settingItems allKeys];
-    // Uncomment the following line to preserve selection between presentations.
+    //[[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:0.93 green:0.96 blue:0.99 alpha:1.0]];
+    [[UITableViewCell appearance] setBackgroundColor:[UIColor whiteColor]];
+    //self.tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
+    //self.tableView.sectionIndexBackgroundColor = [UIColor colorWithRed:148.0f green:207.0f blue:255.0f alpha:1];
+    //self.settingsTable.backgroundColor = [UIColor colorWithRed:148.0f green:207.0f blue:255.0f alpha:1];
+    
+    // Preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    [[UIView appearance] setTintColor:[UIColor whiteColor]];
+    self.tabBarItem.selectedImage = [UIImage imageNamed:@"settings"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [settingSectionTitles count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     NSString *sectionTitle = [settingSectionTitles objectAtIndex:section];
     NSArray *sectionSettings = [settingItems objectForKey:sectionTitle];
     return [sectionSettings count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell" forIndexPath:indexPath];
     // Configure the cell
     NSString *sectionTitle = [settingSectionTitles objectAtIndex:indexPath.section];
@@ -70,6 +79,7 @@
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
     return [settingSectionTitles objectAtIndex:section];
 }
 
