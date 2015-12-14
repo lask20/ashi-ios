@@ -101,7 +101,7 @@
     
     NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
     [dateformatter setDateFormat:@"hh:mm dd-MM-YY"];
-    NSString *head = [NSString stringWithFormat:@"%@ @ %@", [dateformatter stringFromDate:notidatas.createdAt], notidatas.fullname];
+    NSString *head = [NSString stringWithFormat:@"%@ @ %@", notidatas.fullname, [dateformatter stringFromDate:notidatas.createdAt]];
     cell.textLabel.text = head;
     cell.detailTextLabel.text = notidatas.message;
     //cell.textLabel.textColor = [UIColor whiteColor];

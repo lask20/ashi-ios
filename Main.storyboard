@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Recent Table View Controller-->
@@ -90,35 +91,6 @@
             </objects>
             <point key="canvasLocation" x="1398" y="1361"/>
         </scene>
-        <!--Help Table View Controller-->
-        <scene sceneID="1es-oC-NP0">
-            <objects>
-                <tableViewController id="gDt-pz-x7Y" customClass="HelpTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="vJS-BK-M5W">
-                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="helpCell" id="Z4E-NS-uWS">
-                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z4E-NS-uWS" id="P5W-9Q-HG9">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="gDt-pz-x7Y" id="5bc-Zg-qTg"/>
-                            <outlet property="delegate" destination="gDt-pz-x7Y" id="ZBW-Tf-r1x"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="sDZ-h7-jzI"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gHk-AD-0Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1430" y="2228"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MSU-du-UMW">
             <objects>
@@ -143,11 +115,11 @@
             </objects>
             <point key="canvasLocation" x="-922" y="1361"/>
         </scene>
-        <!--Help-->
+        <!--About-->
         <scene sceneID="XNa-tZ-uPU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n7j-bs-vSc" customClass="TabNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Help" image="help" selectedImage="help" id="IlV-x0-w8v">
+                    <tabBarItem key="tabBarItem" title="About" image="help" selectedImage="help" id="IlV-x0-w8v">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,12 +133,53 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="gDt-pz-x7Y" kind="relationship" relationship="rootViewController" id="IiU-pY-l3F"/>
+                        <segue destination="Apo-OD-NJS" kind="relationship" relationship="rootViewController" id="8LK-BQ-7cq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2UY-2x-RVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="498" y="2228"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cRV-U8-Y0D">
+            <objects>
+                <viewController id="Apo-OD-NJS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dom-zr-iX1"/>
+                        <viewControllerLayoutGuide type="bottom" id="xOY-7F-nuF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ey1-HH-7ea">
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Y5x-HG-UoS">
+                                <rect key="frame" x="120" y="20" width="360" height="447"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Developer
+Jenpasit Puprasert
+Nathanon Yodnamkam
+Chitsanupong Srisaidee
+Nutchai Sunbhornchaipong
+Nuttapong Kittichaiwattanakul
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xOY-7F-nuF" firstAttribute="top" secondItem="Y5x-HG-UoS" secondAttribute="bottom" constant="20" id="9Lg-Nf-Mpi"/>
+                            <constraint firstItem="Y5x-HG-UoS" firstAttribute="leading" secondItem="ey1-HH-7ea" secondAttribute="leadingMargin" constant="100" id="FLT-Na-Ttx"/>
+                            <constraint firstItem="Y5x-HG-UoS" firstAttribute="centerX" secondItem="ey1-HH-7ea" secondAttribute="centerX" id="OK5-Vo-cam"/>
+                            <constraint firstItem="Y5x-HG-UoS" firstAttribute="top" secondItem="dom-zr-iX1" secondAttribute="bottom" constant="20" id="XaN-DC-HgZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y5x-HG-UoS" secondAttribute="trailing" constant="100" id="mwQ-VP-T4W"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pkj-dS-2FT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GkO-uv-s5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1350" y="2228"/>
         </scene>
         <!--Settings-->
         <scene sceneID="b9g-vv-dJ3">
