@@ -16,7 +16,10 @@
 
 @implementation RecentTableViewController {
     NotiDataList *notiData;
+
+    
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,8 +28,21 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
     
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"clock"];
+}
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [self reload];
+    [refreshControl endRefreshing];
+}
+
+- (void)reload {
+    [self setupData];
+    [self.tableView reloadData];
 }
 
 - (void)setupData {
@@ -50,7 +66,7 @@
 
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self.tableView reloadData];
+    [self reload];
     
 }
 
@@ -66,17 +82,51 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recentCell" forIndexPath:indexPath];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc]
+                 initWithStyle:UITableViewCellStyleSubtitle
+                 reuseIdentifier:@"recentCell"];
+        
+    }
+    
     [self setupCell:cell atIndexPath:indexPath];
     return cell;
 }
 
 - (void)setupCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     NotiData *notidatas = [notiData notiDataAtIndex:indexPath.row];
-    //NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
-    //[dateformatter setDateFormat:@"dd-MM-yyy"];
-    cell.textLabel.text = notidatas.message;
-    //cell.DetailLabel.text = diary.locationName;
+    
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:@"hh:mm dd-MM-YY"];
+    NSString *head = [NSString stringWithFormat:@"%@ @ %@", [dateformatter stringFromDate:notidatas.createdAt], notidatas.fullname];
+    cell.textLabel.text = head;
+    cell.detailTextLabel.text = notidatas.message;
+    //cell.textLabel.textColor = [UIColor whiteColor];
+    //cell.detailTextLabel.textColor = [UIColor whiteColor];
+    [cell setBackgroundColor:[UIColor clearColor]];
+    if ([notidatas.priority containsString:@"Critical"]) {
+        [cell setBackgroundColor:[UIColor colorWithRed:0.92 green:0.13 blue:0.13 alpha:1.0]];
+    } else if ([notidatas.priority containsString:@"High"]) {
+        [cell setBackgroundColor:[UIColor colorWithRed:0.95 green:0.54 blue:0.14 alpha:1.0]];
+    } else if ([notidatas.priority containsString:@"Medium"]) {
+        [cell setBackgroundColor:[UIColor colorWithRed:0.87 green:0.80 blue:0.16 alpha:1.0]];
+    } else if ([notidatas.priority containsString:@"Low"]) {
+        [cell setBackgroundColor:[UIColor colorWithRed:0.18 green:0.80 blue:0.44 alpha:1.0]];
+    }
+    
+    //cell.DetailLabel.text = notidatas.message;
     //cell.DateLabel.text = [dateformatter stringFromDate:diary.diaryDate];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //[tableView cellForRowAtIndexPath:indexPath].textLabel.textColor = [UIColor whiteColor];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //[tableView cellForRowAtIndexPath:indexPath].textLabel.textColor = [UIColor whiteColor];
 }
 
 /*

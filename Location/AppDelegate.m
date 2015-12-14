@@ -15,7 +15,7 @@
 
 - (void)setAppearanceTabBarController {
     //Changing Color of Tab Bar
-    [[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.18 green:0.62 blue:0.99 alpha:1.0]];
+    //[[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:0.18 green:0.62 blue:0.99 alpha:1.0]];
     //StateSelected should be different, you should add this code
     [UITabBarItem.appearance setTitleTextAttributes:
      @{NSForegroundColorAttributeName : [UIColor whiteColor]}
@@ -27,6 +27,7 @@
 - (void)setApperanceTableViewController {
     //[[UITableView appearance] setBackgroundColor:[UIColor colorWithRed:0.93 green:0.96 blue:0.99 alpha:1.0]];
     //[[UITableViewCell appearance] setBackgroundColor:[UIColor colorWithRed:0.93 green:0.96 blue:0.99 alpha:1.0]];
+    //[[UITableViewCell appearance] setTintColor:[UIColor whiteColor]];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -41,6 +42,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setAppearanceTabBarController];
     [self setApperanceTableViewController];
+    //[self setApperanceTableViewController];
     
     [Parse enableLocalDatastore];
     

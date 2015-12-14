@@ -148,9 +148,9 @@
 //    [self.tableView reloadData];
 }
 
-- (void)updateServer {
-    
-}
+//- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return false;
+//}
 
 //-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 //{

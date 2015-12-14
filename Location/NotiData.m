@@ -14,6 +14,7 @@ static const NSString *kId = @"id";
 static const NSString *kTitle = @"message";
 static const NSString *kPiority = @"priority";
 static const NSString *kDetails = @"details";
+static const NSString *kFullname= @"fullname";
 
 - (id)initWithPFObject:(PFObject *)object {
     self = [super init];
@@ -22,7 +23,8 @@ static const NSString *kDetails = @"details";
         self.message = object[@"message"];
         self.priority = object[@"priority"];
         self.details = object[@"details"];
-        self.createdAt = object[@"createdAt"];
+        self.createdAt = object.createdAt;
+        self.fullname = object[@"fullName"];
     }
     return self;
 }

@@ -31,8 +31,13 @@
 }
 
 - (void)setupData {
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    NSArray *channel = currentInstallation.channels;
+    
     PFQuery *query = [PFQuery queryWithClassName:@"NotiData"];
     [query addDescendingOrder:@"createdAt"];
+    //[query addAscendingOrder:@"priority"];
+    [query whereKey:@"priority" containedIn:channel];
     NSArray *objects = [query findObjects];
     NSMutableArray *tmp = [NSMutableArray array];
     for (PFObject *object in objects) {
